@@ -7,7 +7,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\PasswordGeneratorController;
 use App\Http\Controllers\StopwatchController;
-
+use App\Http\Controllers\TipCalculatorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -42,5 +42,6 @@ Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('eve
 
 Route::post('/events/{event}/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 /*CRONOMETRO */
-
 Route::get('/stopwatch', [StopwatchController::class, 'index'])->name('stopwatch.index');
+/* PROPINAS*/
+Route::post('/calculate', [TipCalculatorController::class, 'calculate']);
