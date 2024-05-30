@@ -14,7 +14,7 @@ Route::get('/', function () {
 });
 
 Route::get('/generate-password', function () {
-    return view('generate-password');
+    return view('password.generate-password');
 });
 
 Route::post('/generate-password',[PasswordGeneratorController::class, 'generatePassword'])->name('generate-password');

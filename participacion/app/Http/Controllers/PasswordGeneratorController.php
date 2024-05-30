@@ -9,7 +9,7 @@ class PasswordGeneratorController extends Controller{
 
     public function generatePassword(Request $request){
 
-        $length = $request->input('length, 16');
+        $length = $request->input('length', 16);
 
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
 
@@ -21,7 +21,7 @@ class PasswordGeneratorController extends Controller{
         $savePassword->password]);
     }
 
-    public function randomPassword($length, $characters){
+    public function randomPassword($length, $characters) {
         $charactersLength = strlen($characters);
         $randomString = '';
         for ($i = 0; $i < $length; $i++) {
@@ -29,4 +29,5 @@ class PasswordGeneratorController extends Controller{
         }
         return $randomString;
     }
+
 }
