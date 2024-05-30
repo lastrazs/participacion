@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
-
+use Carbon\Carbon;
 class EventController extends Controller
 {
     public function index()
@@ -36,7 +36,13 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        Event::create($request->only('title', 'description', 'start_time', 'end_time'));
+        Event::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'start_time' => Carbon::parse($request->start_time),
+            'end_time' => Carbon::parse($request->end_time),
+        ]);
+
         return redirect()->route('events.index');
     }
 
@@ -52,10 +58,16 @@ class EventController extends Controller
     }
 
     public function update(Request $request, Event $event)
-    {
-        $event->update($request->only('title', 'description', 'start_time', 'end_time'));
-        return redirect()->route('events.index');
-    }
+{
+    $event->update([
+        'title' => $request->title,
+        'description' => $request->description,
+        'start_time' => Carbon::parse($request->start_time),
+        'end_time' => Carbon::parse($request->end_time),
+    ]);
+
+    return redirect()->route('events.index');
+}
 
     public function destroy(Event $event)
     {

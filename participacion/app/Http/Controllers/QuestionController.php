@@ -10,7 +10,7 @@ class QuestionController extends Controller
 {
     public function create(Survey $survey)
     {
-        return view('questions.create', compact('survey'));
+        return view('surveys.questions.create', compact('survey'));
     }
 
     public function store(Request $request, Survey $survey)
