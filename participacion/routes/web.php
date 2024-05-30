@@ -6,6 +6,7 @@ use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\PasswordGeneratorController;
+use App\Http\Controllers\StopwatchController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -40,3 +41,6 @@ Route::put('/events/{event}', [EventController::class, 'update'])->name('events.
 Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
 
 Route::post('/events/{event}/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+/*CRONOMETRO */
+
+Route::get('/stopwatch', [StopwatchController::class, 'index'])->name('stopwatch.index');
